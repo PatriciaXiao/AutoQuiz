@@ -1,0 +1,20 @@
+<!doctype html>
+<title>Result {{ question_id }}</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+  <h1>Result {{question_id}}</h1>
+  <form action="{{ url_for('question') }}" method=post>
+    <dl>
+      <dt><strong>Number Converting Practice</strong>
+      <dt>Convert number {{question_parameter}} (10 base) into a binary number.
+      {% for candidate in cand_list %}
+        {% if candidate == selected %}
+          <dd><input type=radio name=candidate value={{ candidate }} checked disabled>{{ candidate }}
+        {% else %}
+          <dd><input type=radio name=candidate value={{ candidate }} disabled>{{ candidate }}
+        {% endif %}
+      {% endfor %}
+      <dt><input type=submit value=Continue>
+    </dl>
+  </form>
+</div>
