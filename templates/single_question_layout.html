@@ -3,7 +3,7 @@
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <div class=page>
   <h1>Question {{question_id}}</h1>
-  <form action="{{ url_for('question') }}" method=post>
+  <form action="{{ url_for('report_result') }}" method=post>
     <dl>
       <dt><strong>Number Converting Practice</strong>
       <dt>Convert number {{question_parameter}} (10 base) into a binary number.
