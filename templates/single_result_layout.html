@@ -14,6 +14,14 @@
           <dd><input type=radio name=candidate value={{ candidate }} disabled>{{ candidate }}
         {% endif %}
       {% endfor %}
+      {% if correct %}
+        <dt><h3 class=correct>Congratulations! Your selection is CORRECT</h3>
+      {% else %}
+        <dt><h3 class=error>Your selection is INCORRECT
+            <br>
+            <small>The correct answer is supposed to be {{ answer_expected }}</small>
+          </h3>
+      {% endif %}
       <dt><input type=submit value=Continue>
     </dl>
   </form>

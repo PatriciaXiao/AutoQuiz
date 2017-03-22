@@ -19,7 +19,7 @@ def list_mapfunc(func, para_list):
 		result_list.append(func(para))
 	return result_list
 
-def generate_para_list(seed, interval=1, amount=4, limit=False, lim_min = 0, lim_max = -1):
+def generate_para_list(seed, interval=2, amount=4, limit=False, lim_min = 0, lim_max = -1):
 	candidate_list = [seed]
 	for i in range(amount - 1):
 		tmp_len = len(candidate_list)
