@@ -6,40 +6,20 @@ from functions import *
 def question():
 	question_id = 1
 	question_parameter = 100
-	answer_expected = dec2bin(question_parameter)
-	dec_list = generate_cand_list(question_parameter, interval=4, amount=5, limit=True, lim_min = 0, lim_max=2*question_parameter)
-	bin_list = list_dec2bin(dec_list)
-	cand_list = random_order(bin_list)
+	answer_expected, cand_list = generate_cand_list(dec2bin, question_parameter, \
+		interval=4, amount=5, limit=True, lim_min = 0, lim_max=2*question_parameter)
 	session['cand_list'] = cand_list
-	'''
-	# if update is needed
-	session['to_update'] = True
-	if session['to_update']:
-		question_id = 1
-		question_parameter = 100
-		answer_expected = dec2bin(question_parameter)
-		dec_list = generate_cand_list(question_parameter, interval=4, amount=5, limit=True, lim_min = 0, lim_max=2*question_parameter)
-		bin_list = list_dec2bin(dec_list)
-		cand_list = random_order(bin_list)
-		session['cand_list'] = cand_list
-	else:
-		question_id = 1
-		question_parameter = 100
-		answer_expected = dec2bin(question_parameter)
-		cand_list = session['cand_list']
-	'''
-	# check if answer is correct
 	if request.method == 'POST':
-		print "answer got {0}".format(request.form['candidate'])
+		# print "answer got {0}".format(request.form['candidate'])
 		if request.form['candidate'] == answer_expected:
 			print "correct answer"
-			session['cand_list'] = cand_list
-			return redirect(url_for('report_result', \
-				question_id=question_id, \
-				question_parameter = question_parameter, \
-				selected=request.form['candidate']))
 		else:
 			print ["wrong answer", request.form['candidate'], "supposed to be {0}={1}".format(question_parameter, answer_expected)]
+		return redirect(url_for('report_result', \
+			question_id=question_id, \
+			question_parameter = question_parameter, \
+			selected=request.form['candidate']))
+		
 	return render_template('single_question_layout.html', \
 		question_id = question_id, \
 		question_parameter = question_parameter, \

@@ -13,7 +13,13 @@ def list_dec2bin(dec_list):
 		bin_list.append(dec2bin(dec_num))
 	return bin_list
 
-def generate_cand_list(seed, interval=1, amount=4, limit=False, lim_min = 0, lim_max = -1):
+def list_mapfunc(func, para_list):
+	result_list = []
+	for para in para_list:
+		result_list.append(func(para))
+	return result_list
+
+def generate_para_list(seed, interval=1, amount=4, limit=False, lim_min = 0, lim_max = -1):
 	candidate_list = [seed]
 	for i in range(amount - 1):
 		tmp_len = len(candidate_list)
@@ -40,3 +46,10 @@ def random_order(elem_list):
 	copy_list = copy.deepcopy(elem_list)
 	random.shuffle(copy_list)
 	return copy_list
+
+def generate_cand_list(func, question_parameter, interval=4, amount=5, limit=False, lim_min = -1, lim_max=0):
+	answer_expected = func(question_parameter)
+	dec_list = generate_para_list(question_parameter, interval=interval, amount=amount, limit=limit, lim_min = lim_min, lim_max=lim_max)
+	bin_list = list_mapfunc(func, dec_list)
+	cand_list = random_order(bin_list)
+	return answer_expected, cand_list
