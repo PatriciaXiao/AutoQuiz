@@ -7,3 +7,6 @@ Questions - 2 kinds
 Brainstorm:
 1. scoring stsyem
 2. gathering user data to generate potential answers -> could it be at the same time?
+
+To do next:
+data structure of questions vs templates

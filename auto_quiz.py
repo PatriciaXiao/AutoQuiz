@@ -1,8 +1,13 @@
 from __init__ import *
-from functions import *
+from pylib import *
 
-#@app.route('/')
 @app.route('/', methods=['GET','POST'])
+def welcome():
+	print app.config['DATABASE']
+	return redirect(url_for('question'))
+
+
+@app.route('/question', methods=['GET','POST'])
 def question():
 	question_id = 1
 	question_parameter = pick_randint(10, 100)

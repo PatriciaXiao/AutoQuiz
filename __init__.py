@@ -8,11 +8,12 @@ app = Flask(__name__)
 
 # Load default config and override config from an environment variable
 app.config.update(dict(
-	DATABASE=os.path.join(app.root_path, 'auto_quiz.db'),
+	DATABASE=os.path.join(app.root_path, 'data/auto_quiz.db'),
 	DEBUG=True,
 	SECRET_KEY='development key',
 	USERNAME='admin',
 	PASSWORD='default'
 ))
+# called by app.config['USERNAME'] etc
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
