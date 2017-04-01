@@ -13,11 +13,11 @@ class TestQuestion(QuestionTemplate):
 			print elem
 
 
-	class input_format(object):
+	class input_standardized(object):
 		def __init__(self, raw_data_in):
-			self.data = raw_data_in
+			self.mydata = raw_data_in
 		def get(self):
-			return self.data
+			return self.mydata
 
 question = TestQuestion()
 
