@@ -4,7 +4,7 @@ from abc import ABCMeta, abstractmethod, abstractproperty
 class QuestionTemplate(object):
 
 	__metaclass__ = ABCMeta
-
+	'''
 	# def __init__(self):
 	#	#
 
@@ -19,12 +19,14 @@ class QuestionTemplate(object):
 		return self.data.get()
 	def get_input_data(self):
 		return self.data.get()
+	'''
 
 	# abstract properties
 	@abstractproperty
-	def ID(self): pass				# the ID of the question
-	# @abstractproperty
-	# def data(self): pass
+	def ID(self):			# the ID of the question template
+		return None
+	@abstractproperty
+	def parameters(self): pass
 
 
 	# abstract methods

@@ -1,6 +1,14 @@
 from question_template import *
 
 class TestQuestion(QuestionTemplate):
+	
+	'''
+	class input_standardized(object):
+		def __init__(self, raw_data_in):
+			self.mydata = raw_data_in
+		def get(self):
+			return self.mydata
+	'''
 
 	@property # it also works this way though : ID = 0
 	def ID(self):
@@ -13,11 +21,6 @@ class TestQuestion(QuestionTemplate):
 			print elem
 
 
-	class input_standardized(object):
-		def __init__(self, raw_data_in):
-			self.mydata = raw_data_in
-		def get(self):
-			return self.mydata
 
 question = TestQuestion()
 
